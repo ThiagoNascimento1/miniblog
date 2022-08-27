@@ -102,7 +102,7 @@ export const Register = () => {
           />
         </C.Label>
 
-        {!loading && <C.Button>Concluir</C.Button>}
+        {!loading && <C.Button>Cadastrar-se</C.Button>}
         {loading && <C.ButtonDisabled disabled>Aguarde...</C.ButtonDisabled>}        
 
       </C.Form>

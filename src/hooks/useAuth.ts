@@ -5,7 +5,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
-  signOut
+  signOut,
+  Auth
 } from 'firebase/auth';
 // Hooks
 import { useState, useEffect } from 'react';
@@ -27,6 +28,7 @@ export const useAuth = () => {
     }
   };
 
+  // Register
   const createUser = async (data: User) => {
 
     checkIfIsCancelled();
@@ -59,14 +61,57 @@ export const useAuth = () => {
         let systemErrorMenssage;
 
         if(error.message.includes("email-already")) {
-          systemErrorMenssage = "email já cadastrado!";
+          systemErrorMenssage = "email já cadastrado.";
         } else {
-          systemErrorMenssage = "ocorreu um erro, tente novamente mais tarde!";
+          systemErrorMenssage = "ocorreu um erro, por favor tente mais tarde.";
         }
 
         setLoading(false);
         setError(systemErrorMenssage);
       }
+    }
+
+  };
+
+  // Logout
+  const logout = (auth: Auth) => {
+    checkIfIsCancelled();
+
+    signOut(auth);
+  };
+
+  // Login
+  const login = async (user: User) => {
+
+    checkIfIsCancelled();
+    setError(null);
+    setLoading(true);
+
+    try {
+
+      await signInWithEmailAndPassword(auth, user.email, user.password);
+      setLoading(false);
+
+    } catch(error) {
+
+      if (error instanceof Error) {
+
+        console.log(error.message);
+        
+        let systemErrorMenssage;
+
+        if(error.message.includes("user-not-found")) {
+          systemErrorMenssage = "usuário não encontrado.";
+        } else if (error.message.includes("wrong-password")) {
+          systemErrorMenssage = "senha de usuário incorreta.";
+        } else {
+          systemErrorMenssage = "ocorreu um erro, por favor tente mais tarde.";
+        }
+
+        setLoading(false);
+        setError(systemErrorMenssage);
+      }
+
     }
 
   };
@@ -79,6 +124,8 @@ export const useAuth = () => {
     auth,
     createUser,
     error,
-    loading
+    loading,
+    logout,
+    login
   }
 };

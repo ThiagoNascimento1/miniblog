@@ -23,7 +23,7 @@ export const Ul = styled.ul`
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 8rem;
+  gap: 3rem;
 `;
 
 export const Li = styled.li`
@@ -38,4 +38,12 @@ export const Li = styled.li`
     background-color: #000;
     color: #fff;
   }
+`;
+
+export const Button = styled.button`
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: normal;
+  padding: .5rem .8rem;
+  color: #000;
 `;
