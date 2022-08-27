@@ -34,4 +34,8 @@ export const Credits = styled.div`
   a {
     font-weight: 700;
   }
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;

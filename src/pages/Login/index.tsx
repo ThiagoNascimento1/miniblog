@@ -30,7 +30,6 @@ export const Login = () => {
     };
 
     const res = await login(user);
-    console.log(res);
 
   };
 
@@ -43,7 +42,7 @@ export const Login = () => {
   return (
     <C.Container>
       <C.Title>Fazer Login</C.Title>
-      <C.Form onSubmit={handleSubmit}>
+      <C.Form onSubmit={handleSubmit} autoComplete="off">
 
         <C.Label>
           <span>Email</span>
@@ -53,6 +52,7 @@ export const Login = () => {
             type="text"
             name="email"
             required
+            spellCheck="false"
             onChange={e => setEmail(e.target.value)}
             value={email}
           />
@@ -67,6 +67,7 @@ export const Login = () => {
               type="password"
               name="password"
               required
+              spellCheck="false"
               onChange={e => setPassword(e.target.value)}
               value={password}
             />

@@ -16,11 +16,6 @@ body {
   min-height: 100vh;
 }
 
-input::placeholder,
-textarea::placeholder {
-  font-family: 'Montserrat', sans-serif;
-}
-
 a,
 nav button {
   text-decoration: none;
@@ -48,10 +43,7 @@ label {
   gap: .2rem;
   margin-bottom: 3rem;
   font-size: 1.8rem;
-}
-
-label span {
-  font-weight: bold;
+  font-size: 1.8rem;
   text-align: left;
 }
 

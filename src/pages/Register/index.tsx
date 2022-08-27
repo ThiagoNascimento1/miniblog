@@ -51,7 +51,7 @@ export const Register = () => {
   return (
     <C.Container>
       <C.Title>Cadastre-se</C.Title>
-      <C.Form onSubmit={handleSubmit}>
+      <C.Form onSubmit={handleSubmit} autoComplete="off">
 
         {error && <FormError error={error}/>}
 
@@ -63,6 +63,7 @@ export const Register = () => {
               type="text"
               name="displayName"
               required
+              spellCheck="false"
               onChange={e => setDisplayName(e.target.value)}
               value={displayName}
             />
@@ -77,6 +78,7 @@ export const Register = () => {
               type="text"
               name="email"
               required
+              spellCheck="false"
               onChange={e => setEmail(e.target.value)}
               value={email}
             />
@@ -91,6 +93,7 @@ export const Register = () => {
               type="password"
               name="password"
               required
+              spellCheck="false"
               onChange={e => setPassword(e.target.value)}
               value={password}
             />
@@ -105,6 +108,7 @@ export const Register = () => {
               type="password"
               name="password"
               required
+              spellCheck="false"
               onChange={e => setConfirmPassword(e.target.value)}
               value={confirmPassword}
             />
