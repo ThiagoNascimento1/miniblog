@@ -11,16 +11,31 @@ export const Title = styled.div`
   text-align: center;
   font-size: 2.5rem;
   font-weight: 500;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 `;
 
-export const Form = styled.form`
-`;
+export const Form = styled.form``;
 
 export const Label = styled.label`
+  margin-bottom: 1.5rem;
+`;
+
+export const InputArea = styled.div`
+  display: flex;
+  align-items: center;
+  border: .1rem solid #999;
+  border-radius: 10px;
+  padding: .3rem 1rem;
+  margin-top: .8rem;
+
+  .icon {
+    display: block;
+    font-size: 2.2rem;
+  }
 `;
 
 export const Input = styled.input`
+  flex: 1;
 `;
 
 export const Button = styled.button`
@@ -32,4 +47,21 @@ export const ButtonDisabled = styled.button`
   display: block;
   margin: 1rem auto;
   color: #ccc;
+`;
+
+export const Footer = styled.div`
+  text-align: right;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+
+  a {
+    color: #4169e1;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 `;

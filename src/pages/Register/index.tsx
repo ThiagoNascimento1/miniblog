@@ -1,5 +1,6 @@
 // Hooks
 import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { FormError } from '../../components/FormError';
 import { useAuth } from '../../hooks/useAuth';
 import { User } from '../../types/User';
@@ -55,55 +56,65 @@ export const Register = () => {
         {error && <FormError error={error}/>}
 
         <C.Label>
-          <span>Nome</span>
-          <C.Input
-            type="text"
-            name="displayName"
-            required
-            placeholder="Nome do usuário"
-            onChange={e => setDisplayName(e.target.value)}
-            value={displayName}
-          />
+          <span>Nome de usuário</span>
+          <C.InputArea>
+          <i className="fa-solid fa-user"></i>
+            <C.Input
+              type="text"
+              name="displayName"
+              required
+              onChange={e => setDisplayName(e.target.value)}
+              value={displayName}
+            />
+          </C.InputArea>
         </C.Label>
 
         <C.Label>
           <span>Email</span>
-          <C.Input
-            type="text"
-            name="email"
-            required
-            placeholder="Email do usuário"
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-          />
+          <C.InputArea>
+          <i className="icon fa-solid fa-envelope"></i>
+            <C.Input
+              type="text"
+              name="email"
+              required
+              onChange={e => setEmail(e.target.value)}
+              value={email}
+            />
+          </C.InputArea>
         </C.Label>
 
         <C.Label>
-          <span>Definir senha</span>
-          <C.Input
-            type="password"
-            name="password"
-            required
-            placeholder="Definir senha"
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-          />
+          <span>Senha</span>
+          <C.InputArea>
+          <i className="fa-solid fa-lock"></i>
+            <C.Input
+              type="password"
+              name="password"
+              required
+              onChange={e => setPassword(e.target.value)}
+              value={password}
+            />
+          </C.InputArea>
         </C.Label>
 
         <C.Label>
           <span>Confirmar senha</span>
-          <C.Input
-            type="password"
-            name="password"
-            required
-            placeholder="Confirmar senha"
-            onChange={e => setConfirmPassword(e.target.value)}
-            value={confirmPassword}
-          />
+          <C.InputArea>
+          <i className="fa-solid fa-lock"></i>
+            <C.Input
+              type="password"
+              name="password"
+              required
+              onChange={e => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
+            />
+          </C.InputArea>
         </C.Label>
 
         {!loading && <C.Button>Cadastrar-se</C.Button>}
-        {loading && <C.ButtonDisabled disabled>Aguarde...</C.ButtonDisabled>}        
+        {loading && <C.ButtonDisabled disabled>Aguarde...</C.ButtonDisabled>}     
+
+        <C.Footer>já tem uma conta? <NavLink to="/login">acessar minha conta</NavLink></C.Footer>   
 
       </C.Form>
     </C.Container>

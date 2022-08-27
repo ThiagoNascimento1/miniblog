@@ -35,15 +35,18 @@ nav button {
 }
 
 form {
-  max-width: 40%;
+  max-width: 50%;
   margin: 0 auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+  padding: 2rem 1.5rem;
 }
 
 label {
   display: flex;
   flex-direction: column;
   gap: .2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   font-size: 1.8rem;
 }
 
@@ -55,10 +58,9 @@ label span {
 input,
 textarea {
   border: none;
-  border-bottom: .1rem solid #ccc;
   padding: .5rem 1rem;
   background-color: transparent;
-  font-size: 1.5rem;
+  font-size: 2rem;
   outline: none;
 }
 
@@ -68,8 +70,8 @@ button {
   color: #fff;
   cursor: pointer;
   border-radius: 1rem;
-  width: 12rem;
+  font-size: 2rem;
   font-weight: bold;
   border: none;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
 }

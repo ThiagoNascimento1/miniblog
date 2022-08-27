@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { FormError } from '../../components/FormError';
 import { useAuth } from '../../hooks/useAuth';
 import { User } from '../../types/User';
+import { NavLink } from 'react-router-dom';
 
 export const Login = () => {
 
@@ -44,34 +45,40 @@ export const Login = () => {
       <C.Title>Fazer Login</C.Title>
       <C.Form onSubmit={handleSubmit}>
 
-        {error && <FormError error={error}/>}
-
         <C.Label>
           <span>Email</span>
-          <C.Input
+          <C.InputArea>
+          <i className="icon fa-solid fa-envelope"></i>
+            <C.Input
             type="text"
             name="email"
             required
-            placeholder="Email do usuário"
             onChange={e => setEmail(e.target.value)}
             value={email}
           />
+          </C.InputArea>
         </C.Label>
 
         <C.Label>
-          <span>Definir senha</span>
-          <C.Input
-            type="password"
-            name="password"
-            required
-            placeholder="Definir senha"
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-          />
+          <span>Senha</span>
+          <C.InputArea>
+          <i className="fa-solid fa-lock"></i>
+            <C.Input
+              type="password"
+              name="password"
+              required
+              onChange={e => setPassword(e.target.value)}
+              value={password}
+            />
+          </C.InputArea>
         </C.Label>
 
+        {error && <FormError error={error}/>}
+
         {!loading && <C.Button>Entrar</C.Button>}
-        {loading && <C.ButtonDisabled disabled>Aguarde...</C.ButtonDisabled>}        
+        {loading && <C.ButtonDisabled disabled>Aguarde...</C.ButtonDisabled>}    
+
+        <C.Footer>novo por aqui? <NavLink to="/register">cadastre-se</NavLink></C.Footer>
 
       </C.Form>
     </C.Container>
